@@ -40,4 +40,4 @@ O objetivo principal é aplicar os conhecimentos adquiridos nas disciplinas do c
 
 ## **Contato**
 
-Se você tiver dúvidas sobre o projeto, sugestões ou quiser discutir ideias, pode me contatar pelo e-mail: [joao.carmo@sptech.school].
+Se você tiver dúvidas sobre o projeto, sugestões ou quiser discutir ideias, pode me contatar pelo e-mail: joao.carmo@sptech.school.
