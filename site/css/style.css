@@ -3,10 +3,45 @@
     src: url('../assets/fonts/Mantinia\ Regular.otf') format('opentype');
   }
 
-body {
+.home {
     margin: 0;
     height: 600vh; 
-    background-image: url('../assets/home/eldenring_background.jpg'); 
+    background-image: url('../assets/home/bg1.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: white;
+    font-family: 'Mantinia Regular', sans-serif;
+  }
+
+.sobre {
+    margin: 0;
+    height: 600vh; 
+    background-image: url('../assets/home/bg7.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: white;
+    font-family: 'Mantinia Regular', sans-serif;
+  }
+
+.entrar {
+    margin: 0;
+    background-image: url('../assets/home/bg3.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: white;
+    font-family: 'Mantinia Regular', sans-serif;
+  }
+
+.registrar {
+    margin: 0;
+    height: 600vh; 
+    background-image: url('../assets/home/bg4.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -60,7 +95,7 @@ body {
     color: #b79563;
 }
 
-/* BODY HOME*/
+/* HOME*/
 .caixa-central {
     max-width: 700px;
     margin: 100px auto; 
@@ -96,7 +131,7 @@ body {
 
 .footer .container {
     color: #b79563;
-    justify-content: center;
+    justify-content: space-between;
     height: 110px;
 }
 
