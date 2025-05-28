@@ -37,13 +37,13 @@
                 <h3>Quiz</h3>
             </div>
 
-            
+
             <div class="btn-nav-white">
                 <a href="./mural.html">
                     <h3>Fórum</h3>
                 </a>
             </div>
-            
+
             <div class="btn-nav-white">
                 <a href="./dashboard.html">
                     <h3>Gráficos</h3>
@@ -56,66 +56,67 @@
 
         </div>
 
-<body onload="onloadEsconder()">
-    <div id="pontuacaoEJogo" class="dash">
-        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+        <body onload="onloadEsconder()">
+            <div id="pontuacaoEJogo" class="dash">
+                <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                    <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                        <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                        <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                    </div>
+                    <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                        <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                            <span id="spanPontuacaoFinal">***</span>
+                        </span>
+                        <span id="msgFinal" class="width-fit-content">***</span>
+                    </div>
+                </div>
+
+                <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+                    <div id="infoQuestao" class="padding-8">
+                        <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
+                                id="qtdQuestoes"></span>
+                            questões.</span>
+                    </div>
+
+                    <div id="perguntaDaQuestaoAtual" class="padding-8">
+                        <span id="spanQuestaoExibida" class="text-bold"></span>
+                    </div>
+
+                    <div id="infoAlternativas" class="padding-8">
+                        <span><em>Escolha uma opção dentre as abaixo:</em></span>
+                    </div>
+
+                    <div id="opcoes" class="flex-colunar padding-8">
+                        <span>
+                            <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                            <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                            <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                            <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                            <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                        </span>
+                    </div>
+
+                    <div id="botoes" class="flex-colunar padding-8">
+                        <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                        <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                        <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                    </div>
+
+                </div>
             </div>
-            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                    <span id="spanPontuacaoFinal">***</span>
-                </span>
-                <span id="msgFinal" class="width-fit-content">***</span>
-            </div>
-        </div>
-
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
-
-            <div id="infoQuestao" class="padding-8">
-                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
-                    questões.</span>
-            </div>
-
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
-                <span id="spanQuestaoExibida" class="text-bold"></span>
-            </div>
-
-            <div id="infoAlternativas" class="padding-8">
-                <span><em>Escolha uma opção dentre as abaixo:</em></span>
-            </div>
-
-            <div id="opcoes" class="flex-colunar padding-8">
-                <span>
-                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                </span>
-                <span>
-                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                </span>
-                <span>
-                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                </span>
-                <span>
-                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                </span>
-            </div>
-
-            <div id="botoes" class="flex-colunar padding-8">
-                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
-            </div>
-
-        </div>
-    </div>
 
     </div>
 
@@ -149,31 +150,94 @@
     const listaDeQuestoes = [
 
         {
-            pergunta: "Qual mês tem 30 dias?",
-            alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
+            pergunta: "Quem é a rainha eterna, receptáculo original do Anel Prístino (Elden Ring) e mãe de muitos semideuses?",
+            alternativaA: "Ranni, a Bruxa da Neve",
+            alternativaB: "Rainha Marika",
+            alternativaC: "Melina",
+            alternativaD: "Rennala, Rainha da Lua Cheia",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Como se chama sua fiel montaria espectral, que te ajuda a atravessar as Terras Intermédias?",
+            alternativaA: "Ventania",
+            alternativaB: "Trovão",
+            alternativaC: "Torrente (Torrent)",
+            alternativaD: "Relâmpago",
             alternativaCorreta: "alternativaC"
         },
 
         {
-            pergunta: "Quantas horas tem em um dia?",
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            pergunta: "Qual item principal é usado para restaurar PV (Pontos de Vida) quando consumido?",
+            alternativaA: "Frasco de Lágrimas Cerúleas",
+            alternativaB: "Frasco de Lágrimas Carmesins",
+            alternativaC: "Runa Dourada",
+            alternativaD: "Cinza da Guerra",
+            alternativaCorreta: "alternativaB"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
-        }
+            pergunta: "O que os Maculados buscam obter dos semideuses para tentar se tornar o Lorde Prístino?",
+            alternativaA: "Fragmentos Estelares",
+            alternativaB: "Grandes Runas",
+            alternativaC: "Memórias dos Chefes",
+            alternativaD: "Chaves de Espada de Pedra",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Quem é o primeiro chefe principal enfrentado logo após sair do Túmulo do Herói?",
+            alternativaA: "Margit, o Agouro Caído",
+            alternativaB: "Sentinela da Árvore",
+            alternativaC: "Godrick, o Enxertado",
+            alternativaD: "Dragão Voador Agheel",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Qual personagem misterioso oferece orientação espiritual ao Maculado durante sua jornada?",
+            alternativaA: "Melina",
+            alternativaB: "Ranni",
+            alternativaC: "Gideon Ofnir",
+            alternativaD: "Renna",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Qual área do mapa é conhecida por seu céu vermelho e atmosfera corrompida?",
+            alternativaA: "Caelid",
+            alternativaB: "Liurnia dos Lagos",
+            alternativaC: "Planícies Altus",
+            alternativaD: "Nokron, Cidade Eterna",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Qual é o nome da espada usada por Malenia em sua segunda fase?",
+            alternativaA: "Espada da Noite Flamejante",
+            alternativaB: "Mão de Malenia",
+            alternativaC: "Lâmina de Miquella",
+            alternativaD: "Kataná do Deus Escarlate",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Qual é a moeda principal do jogo usada para comprar e subir de nível?",
+            alternativaA: "Almas",
+            alternativaB: "Cristais",
+            alternativaC: "Runas",
+            alternativaD: "Fragmentos",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Como se chama a árvore gigantesca visível de quase todos os lugares no mapa?",
+            alternativaA: "Árvore Sagrada",
+            alternativaB: "Raiz Dourada",
+            alternativaC: "Térvore",
+            alternativaD: "Árvore-Mãe",
+            alternativaCorreta: "alternativaC"
+        },
 
     ]
 
@@ -332,26 +396,26 @@
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
         if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
+            textoParaMensagemFinal = "Você caiu nas Terras Intermédias sem preparo... A jornada será longa, Maculado."
             classComCoresParaMensagemFinal = "text-danger-with-bg"
         }
         else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            textoParaMensagemFinal = "Você mostrou coragem, Maculado. Mas ainda há muito a conquistar sob a luz da Térvore."
             classComCoresParaMensagemFinal = "text-warning-with-bg"
         }
         else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
+            textoParaMensagemFinal = "Incrível! Você está pronto para se tornar o Lorde Prístino!"
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('jogo').classList.add("text-new-gray")
 
         btnProx.disabled = true
         btnSubmeter.disabled = true

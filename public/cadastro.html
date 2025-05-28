@@ -108,17 +108,36 @@
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var indice_arroba = emailVar.indexOf("@");
+    var indice_com = emailVar.indexOf(".com");
+    var contem_arroba = indice_arroba >= 0;
+    var arroba_antes_com = indice_arroba < indice_com;
+    var termina_com = emailVar.endsWith(".com");
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" 
+      confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+        "(Os campos não podem estar em branco)";
+
+      finalizarAguardar();
+      return false;
+    } if (senhaVar.length < 8) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Senha deve conter mais que 8 caracteres)";
+
+      finalizarAguardar();
+      return false;
+    } if (contem_arroba == false || arroba_antes_com == false) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Formato do e-mail incorreto)";
 
       finalizarAguardar();
       return false;
