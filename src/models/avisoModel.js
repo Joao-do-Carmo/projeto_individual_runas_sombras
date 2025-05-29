@@ -89,6 +89,12 @@ function deletar(idAviso) {
     return database.executar(instrucaoSql);
 }
 
+function buscarPosts() {
+    var instrucaoSql = `
+        select count(id) from aviso;
+    `;
+}
+
 module.exports = {
     listar,
     listarPorUsuario,
