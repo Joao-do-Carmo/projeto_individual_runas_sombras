@@ -36,6 +36,17 @@ body {
   font-family: 'Mantinia Regular', sans-serif;
 }
 
+.builds {
+  margin: 0;
+  background-image: url('../assets/imgs/bg8.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: white;
+  font-family: 'Mantinia Regular', sans-serif;
+}
+
 .logar {
   margin: 0;
   background-image: url('../assets/imgs/bg3.jpg');
@@ -44,7 +55,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   color: white;
-  font-family: 'Mantinia Regular', sans-serif;  
+  font-family: 'Mantinia Regular', sans-serif;
 }
 
 .registrar {
@@ -55,7 +66,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   color: white;
-  font-family: 'Mantinia Regular', sans-serif;  
+  font-family: 'Mantinia Regular', sans-serif;
 }
 
 :root {
@@ -78,7 +89,8 @@ body {
 
 .header {
   background-color: rgba(0, 0, 0, 0.9);
-  border-bottom: solid rgb(0, 0, 0) 4px;
+  border-bottom: solid #b79563 2px;
+  box-shadow: 0 0 40px black;
 }
 
 .header .container .titulo {
@@ -100,7 +112,7 @@ body {
   color: #b79563;
   list-style-type: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   width: 300px;
 }
@@ -112,7 +124,7 @@ body {
 
 .teste {
   display: flex;
-  
+
 }
 
 .caixa-central {
@@ -121,9 +133,10 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 40px;
   border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 0 20px black;
-  border: solid rgb(0, 0, 0) 2px;
+  text-align: justify;
+  box-shadow: 0 0 40px black;
+  border: solid #b79563 2px;
+  text-justify: inter-word;
 }
 
 .subtitulo {
@@ -132,6 +145,7 @@ body {
   color: #b79563;
   margin-bottom: 20px;
   text-shadow: 2px 2px 8px black;
+  text-align: center;
 }
 
 .descricao {
@@ -152,11 +166,108 @@ body {
   align-items: center;
 }
 
+/* BUILDS */
+
+.caixa-build {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.build {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 40px black;
+  border: solid #b79563 2px;
+  text-align: center;
+}
+
+.titulobuild {
+  font-family: 'Mantinia Regular', serif;
+  color: #b79563;
+  text-shadow: 2px 2px 8px black;
+}
+
+.tabela-atributo {
+  display: flex;
+  justify-content: center;
+}
+
+.build-descricao {
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.item-talisman {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: nowrap;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.foto-talisman {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px;
+  text-align: center;
+}
+
+.foto-talisman img {
+  border-style: solid;
+  border-color: #b79563;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.foto-talisman h4 {
+  margin: 0 0 5px 0;
+  font-weight: bold;
+}
+
+.foto-talisman p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.foto-arma img {
+  height: 200px;
+  width: 200px;
+  border-style: solid;
+  border-color: #b79563;
+  border-radius: 10px;
+}
+
+.foto-set img {
+  height: 300px;
+  width: 200px;
+  border-style: solid;
+  border-color: #b79563;
+  border-radius: 10px;
+}
+
+.build h1,
+h2 {
+  color: #b79563;
+}
+
+
 /* FOOTER */
 
 .footer {
   background-color: rgba(0, 0, 0, 0.9);
-  border-top: solid rgb(0, 0, 0) 4px;
+  border-top: solid #b79563 2px;
+  box-shadow: 0 0 40px black;
 }
 
 .footer .container {
@@ -189,8 +300,8 @@ body {
   flex-direction: column;
   height: fit-content;
   padding: 20px 0;
-  box-shadow: 0 0 20px black;
-  border: solid rgb(0, 0, 0) 2px;
+  box-shadow: 0 0 40px black;
+  border: solid #b79563 2px;
 }
 
 .card h2 {
