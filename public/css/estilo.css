@@ -227,6 +227,7 @@ body {
   height: 100px;
   object-fit: cover;
   margin-bottom: 10px;
+  background-color: black;
 }
 
 .foto-talisman h4 {
@@ -246,6 +247,7 @@ body {
   border-style: solid;
   border-color: #b79563;
   border-radius: 10px;
+  background-color: black;
 }
 
 .foto-set img {
@@ -254,6 +256,7 @@ body {
   border-style: solid;
   border-color: #b79563;
   border-radius: 10px;
+  background-color: black;
 }
 
 .build h1,
