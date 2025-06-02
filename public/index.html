@@ -42,6 +42,64 @@
     </div>
   </div>
 
+  <div class="slider">
+
+    <div class="slides">
+      <input type="radio" name="radio-btn" id="radio1">
+      <input type="radio" name="radio-btn" id="radio2">
+      <input type="radio" name="radio-btn" id="radio3">
+      <input type="radio" name="radio-btn" id="radio4">
+
+      <div class="slide first">
+        <img src="./assets/imgs/4.png" alt="Slide 1">
+        <div class="texto-sobre-imagem">
+          <h2>Seja bem-vindo ao Runas e Sombras</h2>
+          <p>Explore a história de Elden Ring. Entenda os acontecimentos do mundo, descubra
+            segredos ocultos e aprofunde-se na lore por trás das runas e sombras.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="./assets/imgs/5.png" alt="Slide 2">
+        <div class="texto-sobre-imagem">
+          <h2>Forje sua build</h2>
+          <p>Descubra combinações poderosas de armas, armaduras e talismãs para dominar as Lands Between.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="./assets/imgs/6.png" alt="Slide 3">
+        <div class="texto-sobre-imagem">
+          <h2>Cadastre-se e participe</h2>
+          <p>Crie sua conta para realizar quizzes sobre Elden Ring e entrar na comunidade do fórum. Compartilhe teorias,
+            tire dúvidas e conecte-se com outros Tarnished!</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="./assets/imgs/8.png" alt="Slide 4">
+        <div class="texto-sobre-imagem">
+          <h2>Acompanhe a Comunidade</h2>
+          <p>Após se registrar, acesse a aba de dashboard para visualizar gráficos com base nos resultados da
+            comunidade. Descubra tendências, acertos e desafios em tempo real.</p>
+        </div>
+      </div>
+
+      <div class="navigation-auto">
+        <div class="auto-btn1"></div>
+        <div class="auto-btn2"></div>
+        <div class="auto-btn3"></div>
+        <div class="auto-btn4"></div>
+      </div>
+    </div>
+
+    <div class="manual-navigation">
+      <label for="radio1" class="manual-btn"></label>
+      <label for="radio2" class="manual-btn"></label>
+      <label for="radio3" class="manual-btn"></label>
+      <label for="radio4" class="manual-btn"></label>
+    </div>
+
+  </div>
+
+
   <div class="caixa-central">
     <h1 class="subtitulo">Elden Ring</h1>
     <p class="descricao">
@@ -95,3 +153,23 @@
 </body>
 
 </html>
+
+<script>
+  let contador = 1;
+
+  document.getElementById("radio1").checked = true;
+
+  setInterval(function () {
+    proximaImagem();
+  }, 5000)
+
+  function proximaImagem() {
+    contador++
+    if (contador > 4) {
+      contador = 1;
+    }
+
+    document.getElementById("radio" + contador).checked = true;
+
+  }
+</script>
