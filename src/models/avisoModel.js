@@ -85,14 +85,26 @@ function deletar(idAviso) {
     var instrucaoSql = `
         DELETE FROM aviso WHERE id = ${idAviso};
     `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarPosts() {
+function buscarPorId(idAviso) {
+    var instrucaoSql = `SELECT * FROM aviso WHERE id = ${idAviso};`;
+    return database.executar(instrucaoSql); 
+}
+
+function contarPostsPorUsuario() {
     var instrucaoSql = `
-        select count(id) from aviso;
-    `;
+    SELECT 
+        u.nome as nomeUsuario,
+        COUNT(a.id) as totalPosts
+    FROM aviso a
+    INNER JOIN usuario u ON a.fk_usuario = u.id
+    GROUP BY u.id, u.nome
+    ORDER BY totalPosts DESC
+    LIMIT 3;
+`;
+    return database.executar(instrucaoSql);
 }
 
 module.exports = {
@@ -101,5 +113,7 @@ module.exports = {
     pesquisarDescricao,
     publicar,
     editar,
-    deletar
+    deletar,
+    buscarPorId,
+    contarPostsPorUsuario
 }

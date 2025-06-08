@@ -27,4 +27,6 @@ router.delete("/deletar/:idAviso", function (req, res) {
     avisoController.deletar(req, res);
 });
 
+router.get("/stats/postsPorUsuario", avisoController.obterContagemPostsPorUsuario);
+
 module.exports = router;
