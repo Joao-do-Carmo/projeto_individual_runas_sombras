@@ -26,39 +26,29 @@
 
 
         <div class="header-left">
-
             <h1>Runas e Sombras</h1>
-
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
-
             <div class="btn-nav-white">
                 <a href="cards.html">
                     <h3>Quiz</h3>
                 </a>
             </div>
-
             <div class="btn-nav">
                 <h3>Fórum</h3>
             </div>
-
             <div class="btn-nav-white">
                 <a href="./dashboard.html">
                     <h3>Gráficos</h3>
                 </a>
             </div>
-
-
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
             </div>
-
         </div>
 
         <div class="dash-right">
-
-
             <div class="avisos">
                 <div id="alerta">
                 </div>
@@ -93,15 +83,11 @@
         </div>
     </div>
 
-
-
-
 </body>
 
 </html>
-
 <script>
-    
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function limparFormulario() {
@@ -147,43 +133,66 @@
 
     function editar(idAviso) {
         sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-        console.log("cliquei em editar - " + idAviso);
-        window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-        window.location = "/dashboard/edicao-aviso.html"
-
+        console.log("Redirecionando para editar post ID:", idAviso);
+        window.location = "/dashboard/edicao-aviso.html";
     }
 
     function deletar(idAviso) {
-        console.log("Criar função de apagar post escolhido - ID" + idAviso);
+        console.log("Tentando deletar post ID:", idAviso);
+
+        if (!confirm("Tem certeza que deseja excluir este post? Esta ação não pode ser desfeita.")) {
+            return;
+        }
+
+        const idUsuario = sessionStorage.ID_USUARIO;
+        if (!idUsuario) {
+            alert("Sessão inválida. Faça login novamente.");
+            return;
+        }
+
         fetch(`/avisos/deletar/${idAviso}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+            body: JSON.stringify({
+                idUsuarioLogado: idUsuario
+            })
         }).then(function (resposta) {
-
             if (resposta.ok) {
-                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
+                window.alert("Post deletado com sucesso!");
+                atualizarFeed();
+            } else if (resposta.status == 403) {
+                window.alert("Você não tem permissão para deletar este post.");
             } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
+                window.alert("Post não encontrado (erro 404)!");
             } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                resposta.json().then(err => {
+                    throw (`Houve um erro ao tentar deletar o post! ${err.mensagem || resposta.status}`);
+                }).catch(() => {
+                    throw (`Houve um erro ao tentar deletar o post! Código: ${resposta.status}`);
+                });
             }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
+        }).catch(function (erro) {
+            console.error(`#ERRO ao deletar: ${erro}`);
+            window.alert(`Erro ao deletar: ${erro}`);
         });
     }
 
     function atualizarFeed() {
+        const idUsuarioLogado = sessionStorage.ID_USUARIO;
+        const idUsuarioLogadoNum = idUsuarioLogado ? parseInt(idUsuarioLogado) : null;
+
         fetch("/avisos/listar").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("feed_container");
                     var mensagem = document.createElement("span");
-                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    mensagem.innerHTML = "Nenhum resultado encontrado.";
                     feed.appendChild(mensagem);
-                    throw "Nenhum resultado encontrado!!";
+                    console.log("Nenhum resultado encontrado para o feed.");
+                    finalizarAguardar();
+                    return;
                 }
 
                 resposta.json().then(function (resposta) {
@@ -194,57 +203,58 @@
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
 
-                        // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
-                        var btnEditar = document.createElement("button");
-                        var btnDeletar = document.createElement("button");
 
-
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
                         spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                        btnEditar.innerHTML = "Editar";
-                        btnDeletar.innerHTML = "Deletar";
 
                         divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                        spanNome.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
+                        spanNome.className = "publicacao-nome";
                         divDescricao.className = "publicacao-descricao";
+                        divButtons.className = "div-buttons";
 
-                        divButtons.className = "div-buttons"
+                        if (idUsuarioLogadoNum && publicacao.fk_usuario == idUsuarioLogadoNum) {
+                            var btnEditar = document.createElement("button");
+                            var btnDeletar = document.createElement("button");
 
-                        btnEditar.className = "publicacao-btn-editar"
-                        btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+                            btnEditar.innerHTML = "Editar";
+                            btnDeletar.innerHTML = "Deletar";
 
-                        btnDeletar.className = "publicacao-btn-editar"
-                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+                            btnEditar.className = "publicacao-btn-editar";
+                            btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+
+                            btnDeletar.className = "publicacao-btn-editar";
+                            btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+
+                            divButtons.appendChild(btnEditar);
+                            divButtons.appendChild(btnDeletar);
+                        }
 
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
                         divPublicacao.appendChild(divDescricao);
-                        divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnEditar);
-                        divButtons.appendChild(btnDeletar);
+
+                        if (divButtons.hasChildNodes()) {
+                            divPublicacao.appendChild(divButtons);
+                        }
                         feed.appendChild(divPublicacao);
                     }
-
                     finalizarAguardar();
                 });
             } else {
-                throw ('Houve um erro na API!');
+                console.error('Houve um erro na API!');
+                finalizarAguardar();
             }
-        }).catch(function (resposta) {
-            console.error(resposta);
+        }).catch(function (erro) {
+            console.error("Erro no fetch para /avisos/listar:", erro);
             finalizarAguardar();
         });
     }
