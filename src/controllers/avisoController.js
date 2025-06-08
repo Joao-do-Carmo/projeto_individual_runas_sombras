@@ -91,7 +91,7 @@ function publicar(req, res) {
 function editar(req, res) {
     var novaDescricao = req.body.descricao;
     var idAviso = req.params.idAviso;
-    var idUsuarioRequisitante = req.body.idUsuarioLogado; 
+    var idUsuarioRequisitante = req.body.idUsuarioLogado;
 
     if (!idUsuarioRequisitante) {
         return res.status(401).json({ mensagem: "Usuário não autenticado para esta ação." });
@@ -129,7 +129,7 @@ function editar(req, res) {
 
 function deletar(req, res) {
     var idAviso = req.params.idAviso;
-    var idUsuarioRequisitante = req.body.idUsuarioLogado; 
+    var idUsuarioRequisitante = req.body.idUsuarioLogado;
 
     if (!idUsuarioRequisitante) {
         return res.status(401).json({ mensagem: "Usuário não autenticado para esta ação." });

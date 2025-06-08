@@ -258,7 +258,7 @@
     }
 
     function obterDadosPostsPorUsuario() {
-        fetch(`/avisos/stats/postsPorUsuario`, { cache: 'no-store' }) 
+        fetch(`/avisos/stats/postsPorUsuario`, { cache: 'no-store' })
             .then(function (response) {
                 if (response.ok) {
                     response.json().then(function (dadosPosts) {

@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="./../css/estilo.css" />
 
     <script src="../js/sessao.js"></script>
-    <script src="../js/alerta.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -198,7 +197,7 @@
     const elPontuacaoFinalJogoDiv = document.getElementById('pontuacaoFinalJogo');
     const elJogoDiv = document.getElementById('jogo');
     const elBtnIniciarQuiz = document.getElementById('btnIniciarQuiz');
-    const elBotoesDiv = document.getElementById('botoes'); 
+    const elBotoesDiv = document.getElementById('botoes');
     const elBotoesPosQuizDiv = document.getElementById('botoesPosQuiz');
 
     function onloadEsconder() {
@@ -219,16 +218,16 @@
 
         document.getElementById('msgFinal').className = 'width-fit-content';
 
-        elPontuacaoDiv.style.display = "flex"; 
+        elPontuacaoDiv.style.display = "flex";
 
         if (elPontuacaoDuranteJogoDiv) {
             elPontuacaoDuranteJogoDiv.style.display = "none";
         }
 
-        elPontuacaoFinalJogoDiv.style.display = "none"; 
-        elJogoDiv.style.display = "flex";              
-        elBotoesDiv.style.display = "flex";            
-        elBotoesPosQuizDiv.style.display = "none";     
+        elPontuacaoFinalJogoDiv.style.display = "none";
+        elJogoDiv.style.display = "flex";
+        elBotoesDiv.style.display = "flex";
+        elBotoesPosQuizDiv.style.display = "none";
         elBtnIniciarQuiz.style.display = "none";
 
         document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes;
@@ -239,9 +238,9 @@
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
-        habilitarAlternativas(true); 
-        desmarcarRadioButtons();    
-        limparCoresBackgroundOpcoes(); 
+        habilitarAlternativas(true);
+        desmarcarRadioButtons();
+        limparCoresBackgroundOpcoes();
 
         const questaoAtual = listaDeQuestoes[index];
         document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1;
@@ -253,7 +252,7 @@
     }
 
     function habilitarAlternativas(habilitar) {
-        const radios = document.querySelectorAll('.radio'); 
+        const radios = document.querySelectorAll('.radio');
         radios.forEach(radio => {
             radio.disabled = !habilitar;
         });
@@ -289,7 +288,7 @@
         } else {
             document.getElementById('btnSubmeter').disabled = true;
             document.getElementById('btnProx').disabled = false;
-            habilitarAlternativas(false); 
+            habilitarAlternativas(false);
             checarResposta();
         }
     }
@@ -301,7 +300,7 @@
 
         let acertou = false;
         options.forEach((option) => {
-            if (option.checked) { 
+            if (option.checked) {
                 if (option.value === respostaQuestaoAtual) {
                     certas++;
                     acertou = true;
@@ -329,11 +328,11 @@
 
     function tentarNovamente() {
         elBtnIniciarQuiz.style.display = "block";
-        onloadEsconder(); 
+        onloadEsconder();
     }
 
     function irParaDashboard() {
-        window.location.href = "./dashboard.html"; 
+        window.location.href = "./dashboard.html";
     }
 
     function finalizarJogo() {
@@ -362,8 +361,8 @@
         elJogoDiv.style.display = "none";
         elPontuacaoDuranteJogoDiv.style.display = "none";
         elPontuacaoFinalJogoDiv.style.display = "flex";
-        elBotoesDiv.style.display = "none"; 
-        elBotoesPosQuizDiv.style.display = "flex"; 
+        elBotoesDiv.style.display = "none";
+        elBotoesPosQuizDiv.style.display = "flex";
 
         enviarResultadosParaBackend(pontuacaoCalculada);
     }

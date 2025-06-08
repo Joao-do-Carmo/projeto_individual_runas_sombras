@@ -90,7 +90,7 @@ function deletar(idAviso) {
 
 function buscarPorId(idAviso) {
     var instrucaoSql = `SELECT * FROM aviso WHERE id = ${idAviso};`;
-    return database.executar(instrucaoSql); 
+    return database.executar(instrucaoSql);
 }
 
 function contarPostsPorUsuario() {
