@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Runas e Sombras | Editar Post</title>
 
-    
+
     <link rel="icon" href="../assets/icon/favicon2.png" />
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
@@ -106,13 +106,20 @@
     }
 
     function editar() {
+        const idUsuario = sessionStorage.ID_USUARIO; 
+        if (!idUsuario) {
+            alert("Sessão inválida. Faça login novamente.");
+            return;
+        }
+
         fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                descricao: textarea_descricao.value
+                descricao: textarea_descricao.value,
+                idUsuarioLogado: idUsuario
             })
         }).then(function (resposta) {
 
