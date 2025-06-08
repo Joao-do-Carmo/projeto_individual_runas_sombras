@@ -1,43 +1,61 @@
-# **Runas e Sombras - Projeto Acadêmico Individual**
+# 🛡️ Runas e Sombras 🛡️
 
-Este é um **projeto acadêmico individual** desenvolvido no primeiro semestre do curso de **Ciência da Computação**. O projeto tem como objetivo a criação de um **site** baseado no jogo *Elden Ring*, com funcionalidades como **builds personalizadas**, **quizzes**, **questionários** e uma **dashboard** exclusiva para usuários logados.
+![Status](https://img.shields.io/badge/status-mantido-green)
 
-## **Objetivo do Projeto**
+Um portal interativo para fãs do universo de Elden Ring, desenvolvido como projeto individual do primeiro semestre do curso de Ciência da Computação na SPTech.
 
-O objetivo principal é aplicar os conhecimentos adquiridos nas disciplinas do curso.
+## 📜 Sobre o Projeto
 
-### Funcionalidades:
-- **Página Inicial**: Introdução ao site e ao universo de *Elden Ring*.
-- **Sobre**: Página que apresenta o criador do projeto e a inspiração por trás do trabalho.
-- **Login e Cadastro**: Sistema de login e cadastro para acessar conteúdo exclusivo.
-- **Dashboard**: Área restrita para usuários logados, contendo:
-  - **Builds**: Área para criação e visualização de builds personalizadas.
-  - **Quiz**: Teste de conhecimento sobre o jogo *Elden Ring*.
-  - **Questionário**: Questionário para o usuário.
+"Runas e Sombras" é um site funcional focado no universo de **Elden Ring**, criado para aplicar os conhecimentos técnicos do primeiro semestre de Ciência da Computação. O projeto demonstra a implementação de funcionalidades como cadastro de usuários, quizzes interativos, dashboard para visualização de dados e um fórum, tudo operando com um banco de dados em ambiente de máquina virtual e utilizando tecnologias web básicas e APIs.
 
-## **Tecnologias Utilizadas**
+## ✨ Funcionalidades Principais
 
-- **HTML5**: Para estruturação da página e conteúdo.
-- **CSS3**: Estilização.
-- **JavaScript**: Lógica do site.
-- **API**: Integração com a API fornecida pela faculdade.
-- **Banco de Dados**: Armazenamento de dados de usuários, builds e respostas do quiz e questionário.
+*   Cadastro e Login de Usuários
+*   Quizzes sobre Elden Ring
+*   Dashboard com indicadores de usuário
+*   Fórum (Mural de Postagens)
+*   Integração com API institucional (WebDataViz)
 
-## **Objetivos de Aprendizado**
+## 🛠️ Tecnologias
 
-- Criar um **site** utilizando **HTML**, **CSS** e **JavaScript**.
-- Implementar **funções dinâmicas**, como quizzes e questionários.
-- Integrar o **front-end** com **banco de dados** e **API**.
-- Criar uma **dashboard** de usuários com conteúdo exclusivo.
-- Explorar o universo de *Elden Ring* como tema para o site e como uma forma de aplicar conceitos aprendidos.
+*   **Frontend:** HTML5, CSS3, JavaScript
+*   **Backend (Lógica de API e Servidor):** Node.js (para APIs do projeto)
+*   **Banco de Dados:** SQL (Relacional, operando em VM Lubuntu)
+*   **Conceitos:** APIs, Sistemas Operacionais, Arquitetura Computacional.
 
-## **Avisos Importantes**
+## 🚀 Começando
 
-- O projeto foi desenvolvido **individualmente** como parte de um **trabalho acadêmico** e não tem fins comerciais.
-- O conteúdo sobre *Elden Ring* é usado **de forma não comercial**, com base no universo do jogo.
+### Pré-requisitos
 
----
+*   Navegador Web
+*   Software de virtualização (ex: VirtualBox) com Lubuntu
+*   (Opcional, para rodar backend localmente) Node.js
 
-## **Contato**
+### Configuração
 
-Se você tiver dúvidas sobre o projeto, sugestões ou quiser discutir ideias, pode me contatar pelo e-mail: joao.carmo@sptech.school.
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/Joao-do-Carmo/projeto_individual_runas_sombras.git
+    cd projeto_individual_runas_sombras
+    ```
+2.  **Banco de Dados:** Configure o banco de dados SQL na VM Lubuntu conforme scripts no diretório `/database` (ou documentação).
+3.  **Backend (se houver servidor próprio além da API institucional):**
+    *   Instale dependências: `npm install` (na pasta do backend)
+    *   Configure variáveis de ambiente (`.env`).
+    *   Inicie o servidor: `npm start` ou `node app.js`.
+4.  **Frontend:** Abra os arquivos HTML principais (ex: `index.html`) no navegador.
+
+*Para detalhes completos da arquitetura e configuração, consulte a documentação oficial do projeto.*
+
+## 🧑‍💻 Autor
+
+*   **João Victor Espindola do Carmo**
+    *   RA: 04251066
+    *   E-mail: `joao.carmo@sptech.school`
+    *   GitHub: [@Joao-do-Carmo](https://github.com/Joao-do-Carmo)
+
+## 📄 Licença
+
+Distribuído sob a Licença MIT. Veja `LICENSE` para mais informações.
+O projeto foi desenvolvido **individualmente** como parte de um **trabalho acadêmico** e não tem fins comerciais.
+O conteúdo sobre *Elden Ring* é usado **de forma não comercial**, com base no universo do jogo.
