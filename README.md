@@ -1,4 +1,4 @@
-# 🛡️ Runas e Sombras 🛡️
+# ⚔️ Runas e Sombras 🛡️
 
 ![Status](https://img.shields.io/badge/status-mantido-green)
 
@@ -56,6 +56,6 @@ Um portal interativo para fãs do universo de Elden Ring, desenvolvido como proj
 
 ## 📄 Licença
 
-Distribuído sob a Licença MIT. Veja `LICENSE` para mais informações.
-O projeto foi desenvolvido **individualmente** como parte de um **trabalho acadêmico** e não tem fins comerciais.
-O conteúdo sobre *Elden Ring* é usado **de forma não comercial**, com base no universo do jogo.
+- Distribuído sob a Licença MIT. Veja `LICENSE` para mais informações.
+- O projeto foi desenvolvido **individualmente** como parte de um **trabalho acadêmico** e não tem fins comerciais.
+- O conteúdo sobre *Elden Ring* é usado **de forma não comercial**, com base no universo do jogo.
